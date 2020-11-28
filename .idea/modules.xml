@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ANTLR4-Action-Examples.iml" filepath="$PROJECT_DIR$/.idea/ANTLR4-Action-Examples.iml" />
       <module fileurl="file://$PROJECT_DIR$/expression/expression.iml" filepath="$PROJECT_DIR$/expression/expression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-code-transfer/java-code-transfer.iml" filepath="$PROJECT_DIR$/java-code-transfer/java-code-transfer.iml" />
     </modules>
   </component>
 </project>

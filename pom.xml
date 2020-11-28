@@ -12,7 +12,18 @@
     <!-- sub modules-->
     <modules>
         <module>expression</module>
+        <module>java-code-transfer</module>
     </modules>
+
+    <dependencies>
+        <!--the plugin for in my Mac is 4.8-->
+        <!-- other version will cause errors -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.8</version>
+        </dependency>
+    </dependencies>
 
 
 </project>
