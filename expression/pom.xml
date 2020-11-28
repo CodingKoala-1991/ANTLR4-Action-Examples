@@ -23,7 +23,6 @@
     <build>
         <plugins>
             <!--把依赖的外部包也打进 jar-with-dependencies 里面，同时指定 mainClass 入口-->
-            <!--这样直接执行 java -jar antlr4_spark_sql_ast-1.0-SNAPSHOT-jar-with-dependencies.jar 就可以运行-->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
