@@ -1,8 +1,0 @@
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/gen/org/codingkoala/transfer/JavaLexer.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/gen/org/codingkoala/transfer/JavaParser.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/gen/org/codingkoala/transfer/JavaListener.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/gen/org/codingkoala/transfer/JavaBaseVisitor.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/src/main/java/org/codingkoala/transfer/ExtractInterfaceTool.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/src/main/java/org/codingkoala/transfer/ExtractInterfaceListener.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/gen/org/codingkoala/transfer/JavaVisitor.java
-/Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/java-code-transfer/gen/org/codingkoala/transfer/JavaBaseListener.java
