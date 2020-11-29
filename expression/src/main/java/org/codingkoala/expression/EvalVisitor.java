@@ -44,22 +44,41 @@ public class EvalVisitor extends LabeledExprBaseVisitor<Integer> {
         return 0;
     }
 
+//    /** expr op=('*'|'/') expr */
+//    @Override
+//    public Integer visitMulDiv(LabeledExprParser.MulDivContext ctx) {
+//        int left = visit(ctx.expr(0));  // get value of left subexpression
+//        int right = visit(ctx.expr(1)); // get value of right subexpression
+//        if ( ctx.op.getType() == LabeledExprParser.MUL ) return left * right;
+//        return left / right; // must be DIV
+//    }
+//
+//    /** expr op=('+'|'-') expr */
+//    @Override
+//    public Integer visitAddSub(LabeledExprParser.AddSubContext ctx) {
+//        int left = visit(ctx.expr(0));  // get value of left subexpression
+//        int right = visit(ctx.expr(1)); // get value of right subexpression
+//        if ( ctx.op.getType() == LabeledExprParser.ADD ) return left + right;
+//        return left - right; // must be SUB
+//    }
+
     /** expr op=('*'|'/') expr */
     @Override
-    public Integer visitMulDiv(LabeledExprParser.MulDivContext ctx) {
+    public Integer visitOperations(LabeledExprParser.OperationsContext ctx) {
         int left = visit(ctx.expr(0));  // get value of left subexpression
         int right = visit(ctx.expr(1)); // get value of right subexpression
-        if ( ctx.op.getType() == LabeledExprParser.MUL ) return left * right;
-        return left / right; // must be DIV
-    }
-
-    /** expr op=('+'|'-') expr */
-    @Override
-    public Integer visitAddSub(LabeledExprParser.AddSubContext ctx) {
-        int left = visit(ctx.expr(0));  // get value of left subexpression
-        int right = visit(ctx.expr(1)); // get value of right subexpression
-        if ( ctx.op.getType() == LabeledExprParser.ADD ) return left + right;
-        return left - right; // must be SUB
+        String text = ctx.op().getText();
+        if ("+".equals(text)) {
+            return left + right;
+        } else if ("-".equals(text)) {
+            return left - right;
+        } else if ("*".equals(text)) {
+            return left * right;
+        } else if ("/".equals(text)) {
+            return left / right;
+        } else {
+            return 0;
+        }
     }
 
     /** '(' expr ')' */

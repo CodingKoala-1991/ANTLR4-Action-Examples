@@ -1,4 +1,4 @@
-// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/com/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
+// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/org/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
 package org.codingkoala.expression;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -76,25 +76,13 @@ public class LabeledExprBaseListener implements LabeledExprListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMulDiv(LabeledExprParser.MulDivContext ctx) { }
+	@Override public void enterOperations(LabeledExprParser.OperationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMulDiv(LabeledExprParser.MulDivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAddSub(LabeledExprParser.AddSubContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddSub(LabeledExprParser.AddSubContext ctx) { }
+	@Override public void exitOperations(LabeledExprParser.OperationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -119,6 +107,18 @@ public class LabeledExprBaseListener implements LabeledExprListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitInt(LabeledExprParser.IntContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOp(LabeledExprParser.OpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOp(LabeledExprParser.OpContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -1,4 +1,4 @@
-// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/com/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
+// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/org/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
 package org.codingkoala.expression;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -66,29 +66,17 @@ public interface LabeledExprListener extends ParseTreeListener {
 	 */
 	void exitParens(LabeledExprParser.ParensContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code MulDiv}
+	 * Enter a parse tree produced by the {@code operations}
 	 * labeled alternative in {@link LabeledExprParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void enterMulDiv(LabeledExprParser.MulDivContext ctx);
+	void enterOperations(LabeledExprParser.OperationsContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code MulDiv}
+	 * Exit a parse tree produced by the {@code operations}
 	 * labeled alternative in {@link LabeledExprParser#expr}.
 	 * @param ctx the parse tree
 	 */
-	void exitMulDiv(LabeledExprParser.MulDivContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code AddSub}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAddSub(LabeledExprParser.AddSubContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code AddSub}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAddSub(LabeledExprParser.AddSubContext ctx);
+	void exitOperations(LabeledExprParser.OperationsContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code id}
 	 * labeled alternative in {@link LabeledExprParser#expr}.
@@ -113,4 +101,14 @@ public interface LabeledExprListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitInt(LabeledExprParser.IntContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LabeledExprParser#op}.
+	 * @param ctx the parse tree
+	 */
+	void enterOp(LabeledExprParser.OpContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LabeledExprParser#op}.
+	 * @param ctx the parse tree
+	 */
+	void exitOp(LabeledExprParser.OpContext ctx);
 }

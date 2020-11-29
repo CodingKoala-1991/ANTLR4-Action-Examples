@@ -7,12 +7,25 @@ stat:   expr NEWLINE                # printExpr
     |   NEWLINE                     # blank
     ;
 
-expr:   expr op=('*'|'/') expr      # MulDiv
-    |   expr op=('+'|'-') expr      # AddSub
+//expr:   expr op=('*'|'/') expr      # MulDiv
+//    |   expr op=('+'|'-') expr      # AddSub
+//    |   INT                         # int
+//    |   ID                          # id
+//    |   '(' expr ')'                # parens
+//    ;
+
+//
+expr:   expr op expr                # operations
     |   INT                         # int
     |   ID                          # id
     |   '(' expr ')'                # parens
     ;
+
+op:   MUL
+  |   DIV
+  |   ADD
+  |   SUB
+  ;
 
 MUL :   '*' ; // assigns token name to '*' used above in grammar
 DIV :   '/' ;

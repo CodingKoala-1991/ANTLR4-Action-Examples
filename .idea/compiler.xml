@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ANTLR4-Action-Examples" target="1.5" />
-      <module name="expression" target="1.5" />
+      <module name="expression" target="6" />
       <module name="java-code-transfer" target="1.5" />
     </bytecodeTargetLevel>
   </component>

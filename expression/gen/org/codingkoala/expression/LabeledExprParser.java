@@ -1,10 +1,13 @@
-// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/com/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
+// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/org/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
 package org.codingkoala.expression;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class LabeledExprParser extends Parser {
@@ -17,10 +20,10 @@ public class LabeledExprParser extends Parser {
 		T__0=1, T__1=2, T__2=3, MUL=4, DIV=5, ADD=6, SUB=7, ID=8, INT=9, NEWLINE=10, 
 		WS=11;
 	public static final int
-		RULE_prog = 0, RULE_stat = 1, RULE_expr = 2;
+		RULE_prog = 0, RULE_stat = 1, RULE_expr = 2, RULE_op = 3;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"prog", "stat", "expr"
+			"prog", "stat", "expr", "op"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -121,17 +124,17 @@ public class LabeledExprParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(7); 
+			setState(9); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(6);
+				setState(8);
 				stat();
 				}
 				}
-				setState(9); 
+				setState(11); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << ID) | (1L << INT) | (1L << NEWLINE))) != 0) );
@@ -222,16 +225,16 @@ public class LabeledExprParser extends Parser {
 		StatContext _localctx = new StatContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_stat);
 		try {
-			setState(20);
+			setState(22);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				_localctx = new PrintExprContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(11);
+				setState(13);
 				expr(0);
-				setState(12);
+				setState(14);
 				match(NEWLINE);
 				}
 				break;
@@ -239,13 +242,13 @@ public class LabeledExprParser extends Parser {
 				_localctx = new AssignContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(14);
-				match(ID);
-				setState(15);
-				match(T__0);
 				setState(16);
-				expr(0);
+				match(ID);
 				setState(17);
+				match(T__0);
+				setState(18);
+				expr(0);
+				setState(19);
 				match(NEWLINE);
 				}
 				break;
@@ -253,7 +256,7 @@ public class LabeledExprParser extends Parser {
 				_localctx = new BlankContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(19);
+				setState(21);
 				match(NEWLINE);
 				}
 				break;
@@ -300,53 +303,28 @@ public class LabeledExprParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class MulDivContext extends ExprContext {
-		public Token op;
+	public static class OperationsContext extends ExprContext {
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
 		public ExprContext expr(int i) {
 			return getRuleContext(ExprContext.class,i);
 		}
-		public TerminalNode MUL() { return getToken(LabeledExprParser.MUL, 0); }
-		public TerminalNode DIV() { return getToken(LabeledExprParser.DIV, 0); }
-		public MulDivContext(ExprContext ctx) { copyFrom(ctx); }
+		public OpContext op() {
+			return getRuleContext(OpContext.class,0);
+		}
+		public OperationsContext(ExprContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).enterMulDiv(this);
+			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).enterOperations(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).exitMulDiv(this);
+			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).exitOperations(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LabeledExprVisitor ) return ((LabeledExprVisitor<? extends T>)visitor).visitMulDiv(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class AddSubContext extends ExprContext {
-		public Token op;
-		public List<ExprContext> expr() {
-			return getRuleContexts(ExprContext.class);
-		}
-		public ExprContext expr(int i) {
-			return getRuleContext(ExprContext.class,i);
-		}
-		public TerminalNode ADD() { return getToken(LabeledExprParser.ADD, 0); }
-		public TerminalNode SUB() { return getToken(LabeledExprParser.SUB, 0); }
-		public AddSubContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).enterAddSub(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).exitAddSub(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof LabeledExprVisitor ) return ((LabeledExprVisitor<? extends T>)visitor).visitAddSub(this);
+			if ( visitor instanceof LabeledExprVisitor ) return ((LabeledExprVisitor<? extends T>)visitor).visitOperations(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -396,12 +374,11 @@ public class LabeledExprParser extends Parser {
 		ExprContext _prevctx = _localctx;
 		int _startState = 4;
 		enterRecursionRule(_localctx, 4, RULE_expr, _p);
-		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(29);
+			setState(31);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
@@ -410,7 +387,7 @@ public class LabeledExprParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(23);
+				setState(25);
 				match(INT);
 				}
 				break;
@@ -419,7 +396,7 @@ public class LabeledExprParser extends Parser {
 				_localctx = new IdContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(24);
+				setState(26);
 				match(ID);
 				}
 				break;
@@ -428,11 +405,11 @@ public class LabeledExprParser extends Parser {
 				_localctx = new ParensContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(25);
-				match(T__1);
-				setState(26);
-				expr(0);
 				setState(27);
+				match(T__1);
+				setState(28);
+				expr(0);
+				setState(29);
 				match(T__2);
 				}
 				break;
@@ -442,63 +419,27 @@ public class LabeledExprParser extends Parser {
 			_ctx.stop = _input.LT(-1);
 			setState(39);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(37);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
-					case 1:
-						{
-						_localctx = new MulDivContext(new ExprContext(_parentctx, _parentState));
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(31);
-						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(32);
-						((MulDivContext)_localctx).op = _input.LT(1);
-						_la = _input.LA(1);
-						if ( !(_la==MUL || _la==DIV) ) {
-							((MulDivContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-						}
-						else {
-							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-							_errHandler.reportMatch(this);
-							consume();
-						}
-						setState(33);
-						expr(6);
-						}
-						break;
-					case 2:
-						{
-						_localctx = new AddSubContext(new ExprContext(_parentctx, _parentState));
-						pushNewRecursionContext(_localctx, _startState, RULE_expr);
-						setState(34);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(35);
-						((AddSubContext)_localctx).op = _input.LT(1);
-						_la = _input.LA(1);
-						if ( !(_la==ADD || _la==SUB) ) {
-							((AddSubContext)_localctx).op = (Token)_errHandler.recoverInline(this);
-						}
-						else {
-							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-							_errHandler.reportMatch(this);
-							consume();
-						}
-						setState(36);
-						expr(5);
-						}
-						break;
+					{
+					_localctx = new OperationsContext(new ExprContext(_parentctx, _parentState));
+					pushNewRecursionContext(_localctx, _startState, RULE_expr);
+					setState(33);
+					if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
+					setState(34);
+					op();
+					setState(35);
+					expr(5);
 					}
 					} 
 				}
 				setState(41);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,4,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
 			}
 			}
 		}
@@ -513,6 +454,60 @@ public class LabeledExprParser extends Parser {
 		return _localctx;
 	}
 
+	public static class OpContext extends ParserRuleContext {
+		public TerminalNode MUL() { return getToken(LabeledExprParser.MUL, 0); }
+		public TerminalNode DIV() { return getToken(LabeledExprParser.DIV, 0); }
+		public TerminalNode ADD() { return getToken(LabeledExprParser.ADD, 0); }
+		public TerminalNode SUB() { return getToken(LabeledExprParser.SUB, 0); }
+		public OpContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_op; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).enterOp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof LabeledExprListener ) ((LabeledExprListener)listener).exitOp(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof LabeledExprVisitor ) return ((LabeledExprVisitor<? extends T>)visitor).visitOp(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final OpContext op() throws RecognitionException {
+		OpContext _localctx = new OpContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_op);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(42);
+			_la = _input.LA(1);
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MUL) | (1L << DIV) | (1L << ADD) | (1L << SUB))) != 0)) ) {
+			_errHandler.recoverInline(this);
+			}
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
 		case 2:
@@ -523,27 +518,25 @@ public class LabeledExprParser extends Parser {
 	private boolean expr_sempred(ExprContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 5);
-		case 1:
 			return precpred(_ctx, 4);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r-\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\3\2\6\2\n\n\2\r\2\16\2\13\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\5\3\27\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4 \n\4\3\4\3\4\3\4\3\4\3\4"+
-		"\3\4\7\4(\n\4\f\4\16\4+\13\4\3\4\2\3\6\5\2\4\6\2\4\3\2\6\7\3\2\b\t\2\60"+
-		"\2\t\3\2\2\2\4\26\3\2\2\2\6\37\3\2\2\2\b\n\5\4\3\2\t\b\3\2\2\2\n\13\3"+
-		"\2\2\2\13\t\3\2\2\2\13\f\3\2\2\2\f\3\3\2\2\2\r\16\5\6\4\2\16\17\7\f\2"+
-		"\2\17\27\3\2\2\2\20\21\7\n\2\2\21\22\7\3\2\2\22\23\5\6\4\2\23\24\7\f\2"+
-		"\2\24\27\3\2\2\2\25\27\7\f\2\2\26\r\3\2\2\2\26\20\3\2\2\2\26\25\3\2\2"+
-		"\2\27\5\3\2\2\2\30\31\b\4\1\2\31 \7\13\2\2\32 \7\n\2\2\33\34\7\4\2\2\34"+
-		"\35\5\6\4\2\35\36\7\5\2\2\36 \3\2\2\2\37\30\3\2\2\2\37\32\3\2\2\2\37\33"+
-		"\3\2\2\2 )\3\2\2\2!\"\f\7\2\2\"#\t\2\2\2#(\5\6\4\b$%\f\6\2\2%&\t\3\2\2"+
-		"&(\5\6\4\7\'!\3\2\2\2\'$\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\7\3\2"+
-		"\2\2+)\3\2\2\2\7\13\26\37\')";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r/\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\3\2\6\2\f\n\2\r\2\16\2\r\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\3\3\3\3\5\3\31\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4\"\n\4\3\4\3\4\3"+
+		"\4\3\4\7\4(\n\4\f\4\16\4+\13\4\3\5\3\5\3\5\2\3\6\6\2\4\6\b\2\3\3\2\6\t"+
+		"\2\60\2\13\3\2\2\2\4\30\3\2\2\2\6!\3\2\2\2\b,\3\2\2\2\n\f\5\4\3\2\13\n"+
+		"\3\2\2\2\f\r\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16\3\3\2\2\2\17\20\5\6"+
+		"\4\2\20\21\7\f\2\2\21\31\3\2\2\2\22\23\7\n\2\2\23\24\7\3\2\2\24\25\5\6"+
+		"\4\2\25\26\7\f\2\2\26\31\3\2\2\2\27\31\7\f\2\2\30\17\3\2\2\2\30\22\3\2"+
+		"\2\2\30\27\3\2\2\2\31\5\3\2\2\2\32\33\b\4\1\2\33\"\7\13\2\2\34\"\7\n\2"+
+		"\2\35\36\7\4\2\2\36\37\5\6\4\2\37 \7\5\2\2 \"\3\2\2\2!\32\3\2\2\2!\34"+
+		"\3\2\2\2!\35\3\2\2\2\")\3\2\2\2#$\f\6\2\2$%\5\b\5\2%&\5\6\4\7&(\3\2\2"+
+		"\2\'#\3\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\7\3\2\2\2+)\3\2\2\2,-\t"+
+		"\2\2\2-\t\3\2\2\2\6\r\30!)";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

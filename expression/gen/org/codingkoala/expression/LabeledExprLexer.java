@@ -1,4 +1,4 @@
-// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/com/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
+// Generated from /Users/chuanjun.chen/Documents/MyCode/ANTLR4-Action-Examples/expression/src/main/java/org/codingkoala/expression/LabeledExpr.g4 by ANTLR 4.8
 package org.codingkoala.expression;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
