@@ -33,6 +33,12 @@ public class ExpressionMain {
 
         System.out.println("**************** 传入 tokens，构建parser，并生成AST ****************");
         LabeledExprParser parser = new LabeledExprParser(tokens);
+
+//        int len = parser.getTokenNames().length;
+//        for (int i = 0; i < len; i++) {
+//            System.out.println(parser.getTokenNames()[i]);
+//        }
+
         // 从入口的 语法规则 开始递归的构建 AST
         ParseTree tree = parser.prog();
 

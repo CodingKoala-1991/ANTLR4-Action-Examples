@@ -42,9 +42,13 @@ grammar LabeledExpr; // rename to distinguish from Expr.g4
 // '/'=5
 // '+'=6
 // '-'=7
+
+// 另一方面，还有另一个生成的文件  .interp
+// 这个文件是用于 IDE 的交互之类的，暂时可以不关心
+
 prog:   stat+ ;
 
-stat:   expr NEWLINE                # printExpr
+stat:   expr NEWLINE                # printExpr  // 每个备选分支都会生成方法？？？？
     |   ID '=' expr NEWLINE         # assign
     |   NEWLINE                     # blank
     ;
