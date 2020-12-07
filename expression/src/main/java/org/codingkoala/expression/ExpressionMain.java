@@ -3,11 +3,14 @@ package org.codingkoala.expression;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.atn.ATN;
 import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 
 public class ExpressionMain {
     public static void main(String[] args) throws IOException {
@@ -26,23 +29,34 @@ public class ExpressionMain {
         LabeledExprLexer lexer = new LabeledExprLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         tokens.fill();  // 从开始到结束符，获取所有的token，必须有这一句，然后才会可以挨个遍历 所有的 tokens
-//        // 打印匹配的每一个 token 以及 在 tokens 文件中对应的那个编号
-//        for(Token token:tokens.getTokens()) {
-//            System.out.println(token.getText() + ":" + token.getType());
-//        }
+        // 打印匹配的每一个 token 以及 在 tokens 文件中对应的那个编号
+        for(Token token:tokens.getTokens()) {
+            if (token.getText().equals("\n") || token.getText().equals("\r")) {
+                System.out.println("newLine" + "(" + token.getType() + ")\t");
+            } else {
+                System.out.print(token.getText() + "(" + token.getType() + ")\t");
+            }
+        }
+        System.out.println();
 
         System.out.println("**************** 传入 tokens，构建parser，并生成AST ****************");
         LabeledExprParser parser = new LabeledExprParser(tokens);
-
-//        int len = parser.getTokenNames().length;
-//        for (int i = 0; i < len; i++) {
-//            System.out.println(parser.getTokenNames()[i]);
-//        }
-
         // 从入口的 语法规则 开始递归的构建 AST
         ParseTree tree = parser.prog();
 
-//
+        System.out.println(parser.getATN().states.toString());
+
+        List<String> ruleNamesList = Arrays.asList(parser.getRuleNames());
+        String prettyTree = TreeUtils.toPrettyTree(tree, ruleNamesList);
+        System.out.println(prettyTree);
+
+//        for (String token: LabeledExprParser.tokenNames) {
+//            System.out.print(token + " ");
+//        }
+//        System.out.println();
+//        System.out.println(parser.getVocabulary().getDisplayName(12));
+
+
 //        EvalVisitor visitor = new EvalVisitor();
 //        visitor.visit(tree);
     }
