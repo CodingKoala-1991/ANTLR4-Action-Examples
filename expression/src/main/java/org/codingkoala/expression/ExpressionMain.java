@@ -13,6 +13,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExpressionMain {
+    /**
+    * lexer: 词法分析器，就是将输入的 string 切割成符号串，比如这里的 ID INT 之类的
+    * parser: 语法分析器，lexer 输出的 符号串作为输入，把这个 符号串 和 语法进行匹配，生成一个 能走通的语法通路，最终形式就是一棵 AST
+    * */
     public static void main(String[] args) throws IOException {
         // 如果是本地 idea 直接运行，就用这种方式获取 resources 目录的文件
         // 打成 jar 包去运行也可以直接执行命令 "java -jar ./target/expression-1.0-SNAPSHOT-jar-with-dependencies.jar"
@@ -46,9 +50,9 @@ public class ExpressionMain {
 
         System.out.println(parser.getATN().states.toString());
 
-        List<String> ruleNamesList = Arrays.asList(parser.getRuleNames());
-        String prettyTree = TreeUtils.toPrettyTree(tree, ruleNamesList);
-        System.out.println(prettyTree);
+//        List<String> ruleNamesList = Arrays.asList(parser.getRuleNames());
+//        String prettyTree = TreeUtils.toPrettyTree(tree, ruleNamesList);
+//        System.out.println(prettyTree);
 
 //        for (String token: LabeledExprParser.tokenNames) {
 //            System.out.print(token + " ");
